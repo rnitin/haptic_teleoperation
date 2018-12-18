@@ -1,0 +1,26 @@
+Logitech G940
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+Mapping:
+
+
+
+1. Trims:
+Trim1: Altitude (Up: down) 
+Trim2: Yaw (Right : clockwise)
+
+
+
+
+
+2. Buttons:
+
+S2: Take off
+
+
+S3: Land
+
+S4: Switch cameras
+
+

@@ -1,0 +1,16 @@
+Pilot application:
+1. Connect to AR.Drone's WiFi
+2. Open Cygwin terminal
+3. Type
+	cd /home/ardrone-webflight
+	node app.js
+4. Leave the terminal application running and go to localhost:3000 on a browser
+5. Navigate through keyboard or joystick
+
+Force feedback application:
+1. Connect the ground station setup through USB and make sure the bluetooth modules are paired
+2. Connect the joystick through USB
+3. Open command prompt and navigate to D:/Haptic feedback controller/Joystick/SDL/bin/Debug
+4. Execute
+	SDL.exe>logdata.txt
+   which creates a text file named logdata in the same folder and the data is logged in it.
