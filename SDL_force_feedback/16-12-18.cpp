@@ -25,7 +25,7 @@ const int X_JOYSTICK_DEAD_ZONE = 0, Y_JOYSTICK_DEAD_ZONE= 0;
 
 //variables initialization
 long int xval = 0, yval = 0, x_p, x_d, y_p, y_d;
-int tim_dur = 20;   //duration of application of force
+int t_const = 20, t_add = 0, t_result;   //duration of application of force
 int fmag = 0, fdir = 0, ang = 0, xDir = 0, yDir = 0, xDirPrev = 0, yDirPrev = 0, ignore = 0;
 float fx = 0, fy = 0, fxn = 0, fyn = 0, ffx1 = 0, ffy1 = 0, ffx2 = 0, ffy2 = 0, x, y;
 
@@ -327,22 +327,25 @@ void ffb( int xv, int yv)
         fyn = -20000.0;
     }
 
-    if( d1 > 9 && d1 < 100)
+    /*if( d1 > 9 && d1 < 100)
     {
         ffy1 = - (100 - d1) * 200;
         fyn = fyn + ffy1;
     }
     else
         ffy1 = 0;
-
+    */
     if( d2 > 9 && d2 < 100)
     {
-        ffx1 = - (100 - d2) * 200;
+        ffx1 = - (100 - d2) * 420;
         fxn = fxn + ffx1;
+        t_add = (130-d2)/2;
     }
     else
+    {
         ffx1 = 0;
-
+        t_add = 0;
+    }
 /*
     if( d3 > 9 && d3 < 100)
     {
@@ -360,6 +363,7 @@ void ffb( int xv, int yv)
     else
         ffx2 = 0;
 */
+    t_result = t_const + t_add; //Net time
 
     //Magnitude of resultant
     fmag = int(sqrt(fxn*fxn + fyn*fyn));
@@ -415,14 +419,14 @@ void ffb( int xv, int yv)
     /*printf("%f", ffy);
     printf("\t");
     */
-    printf("%d", xv);
-    printf("\t");
-    printf("%d",yv);
-    printf("\t");
+    //printf("%d", xv);
+    //printf("\t");
+    //printf("%d",yv);
+    //printf("\t");
 
-    printf("%d", d1);
-    printf("\t");
-    printf("%d", d2);
+    //printf("%d", d1);
+    //printf("\t");
+    //printf("%d", d2);
     printf("\n");
     /*printf("%d", d3);
     printf("\t");
@@ -431,13 +435,13 @@ void ffb( int xv, int yv)
 */
     SDL_HapticDestroyEffect(haptic, effect_id);
     effect.constant.direction.dir[0] = fdir;    // Direction from which the force comes
-    effect.constant.length = tim_dur;
+    effect.constant.length = t_result;
     effect.constant.level = fmag;   //magnitude of the force
-    effect.periodic.attack_length = (tim_dur/4); // time taken to get max strength
-    effect.periodic.fade_length = (tim_dur/4); // time taken to fade away
+    effect.periodic.attack_length = (t_result); // time taken to get max strength
+    effect.periodic.fade_length = (t_result); // time taken to fade away
     effect_id = SDL_HapticNewEffect( haptic, &effect ); //uploading effect
     SDL_HapticRunEffect( haptic, effect_id, 1 );    //run the effect
-    SDL_Delay(tim_dur); // Wait for the effect to finish
+    SDL_Delay(t_result); // Wait for the effect to finish
 }
 
 

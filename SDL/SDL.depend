@@ -830,3 +830,14 @@
 	<stdlib.h>
 	<windows.h>
 
+1545222170 source:d:\haptic feedback controller\joystick\sdl_force_feedback\16-12-18.cpp
+	<SDL.h>
+	<SDL_haptic.h>
+	<SDL_thread.h>
+	<stdio.h>
+	<string>
+	<cmath>
+	<iostream>
+	<stdlib.h>
+	<windows.h>
+

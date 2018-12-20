@@ -36,7 +36,7 @@
 			<Add option="-lmingw32 -lSDL2main -lSDL2" />
 			<Add directory="D:/Haptic feedback controller/Joystick/mingw_dev_lib/lib" />
 		</Linker>
-		<Unit filename="../SDL force feedback/16-12-18.cpp" />
+		<Unit filename="../SDL_force_feedback/16-12-18.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

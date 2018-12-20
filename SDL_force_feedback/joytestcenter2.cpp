@@ -1,7 +1,7 @@
 
 //Using SDL, SDL_haptic, standard IO, math, and strings
-#include <SDL.h>
-#include <SDL_haptic.h>
+#include <SDL2/SDL.h>
+#include <SDL2/SDL_haptic.h>
 #include <stdio.h>
 #include <string>
 #include <cmath>

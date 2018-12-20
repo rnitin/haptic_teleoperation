@@ -25,11 +25,11 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 #include <string.h>             /* strstr */
 #include <ctype.h>              /* isdigit */
 
-#include "SDL.h"
+#include "SDL2/SDL.h"
 
 #ifndef SDL_HAPTIC_DISABLED
 
-#include "SDL_haptic.h"
+#include "SDL2/SDL_haptic.h"
 
 static SDL_Haptic *haptic;
 
@@ -160,7 +160,7 @@ main(int argc, char **argv)
         printf("   effect %d: Constant Force\n", nefx);
         efx[nefx].type = SDL_HAPTIC_CONSTANT;
         efx[nefx].constant.direction.type = SDL_HAPTIC_POLAR;
-        efx[nefx].constant.direction.dir[0] = 20000;    /* Force comes from the south-west. */
+        efx[nefx].constant.direction.dir[0] = 3000;    /* Force comes from the south-west. */
         efx[nefx].constant.length = 5000;
         efx[nefx].constant.level = 0x6000;
         efx[nefx].constant.attack_length = 1000;
